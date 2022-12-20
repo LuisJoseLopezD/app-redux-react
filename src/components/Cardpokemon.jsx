@@ -3,7 +3,7 @@ import { Card } from "antd";
 import { StarOutlined } from "@ant-design/icons";
 const { Meta } = Card;
 
-const Cardpokemon = () => {
+const Cardpokemon = ({name}) => {
     return (
         <>
             <Card
@@ -17,7 +17,7 @@ const Cardpokemon = () => {
                         src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
                     />
                 }
-                title="card title"
+                title={name}
                 extra={<StarOutlined /> }
             >
                 <Meta

@@ -1,12 +1,15 @@
 import Cardpokemon from "./Cardpokemon";
 import './Pokemonlist.css';
 
-const Pokemonlist = ({pokemons}) => {
+const Pokemonlist = ({pokemondata}) => {
+
+    console.log(pokemondata);
+
     return ( 
         <>
             <div className="pokemonlist">
-                {pokemons.map((pokemon) => {
-                    return <Cardpokemon />;
+                {pokemondata?.map?.((pokemon) => {
+                    return <Cardpokemon name={pokemon.name} key={pokemon.name} />;
                 })}
             </div>
         </>
