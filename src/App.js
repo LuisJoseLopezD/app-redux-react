@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+import React from 'react';
+import Searcher from './components/Searcher';
+import Pokemonlist from './components/Pokemonlist';
+
+import { Col } from 'antd';
+import 'antd/dist/reset.css';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <div className="App">
+            <Col span={8} offset={8}>
+                <Searcher />
+                <Pokemonlist />
+            </Col>
+        </div>
+    );
 }
 
 export default App;
