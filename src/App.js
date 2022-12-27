@@ -7,16 +7,23 @@ import 'antd/dist/reset.css';
 import './App.css';
 
 // Redux
-import { connect } from 'react-redux';
-import { setPokemos as setPokemonsActions  } from './actions';
+import { setPokemons  } from './actions';
+import { useDispatch, useSelector } from 'react-redux';
 
-const App = ({pokemons, setPokemons}) => {
+const App = () => {
+
+
+    // REDUX
+    // se usa para seleccionar un estado del redux
+    const pokemons = useSelector(state => state.pokemons);
+    // se usa para ejecutar o cambiar ese estado
+    const dispatch = useDispatch();
 
     useEffect(() => {
 
         const fetchPokemons = async () => {
             const pokemonRes = await getPokemon();
-            setPokemons(pokemonRes);
+            dispatch(setPokemons(pokemonRes));
         };
 
         fetchPokemons();
@@ -33,14 +40,5 @@ const App = ({pokemons, setPokemons}) => {
     );
 }
 
-// es una función que recibe nuestro estado y retorna propiedades que se utilizan en el componente
-const mapStateToProps = (state) => ({
-    pokemons: state.pokemons,
-});
 
-// es una función que despacha las funciones de redux y retorna también un objeto
-const mapDispatchToProps = (dispatch) => ({
-    setPokemons: (value) => dispatch(setPokemonsActions(value)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
